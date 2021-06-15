@@ -3,29 +3,38 @@ from tkinter import *
 import multiprocessing
 from playsound import playsound
 from validate_email import validate_email
+import rsaidnumber
+from datetime import timedelta, date
 from PIL import Image, ImageTk
 root = Tk()
 from tkinter import messagebox
-Loader = Image.open("L")
-render = ImageTk.PhotoImage(Loader)
-img = Label(root, image=render)
+background_img = Image.open("LOTTO BG.jpeg")
+bg_img = ImageTk.PhotoImage(background_img)
+img = Label(root, image=bg_img)
 img.place(x=0, y=0)
 
 
 
-# creating a mother class
+# Creating a Mother Class
+class ID_Number:
+    pass
+
+
+
+
+
 class LotteryNumbers:
     def __init__(self, master):
         self.root = root
         self.root.title("Ithuba National Lottery of South Africa Login Form")
-        self.root.geometry("2560X1536")
+        self.root.geometry("1500x1000")
 
 
 # Creating  Widgets
         self.username_lbl = Label(master, text="Please Enter Your Name :")
-        self.username_lbl.place(x=10, y=30)
+        self.username_lbl.place(x=10, y=40)
         self.username_entry = Entry(master, borderwidth=5)
-        self.username_entry.place(x=200, y=30)
+        self.username_entry.place(x=200, y=40)
 
         self.password_lbl = Label(master, text="Please Enter Your Password :")
         self.password_lbl.place(x=10, y=60)
@@ -58,7 +67,7 @@ class LotteryNumbers:
         Username = ["Karabo", "Masimthembe", "Malik", "Jardien", "Likho"]
         Password = ["123", "456", "789", "101", "131"]
         Address =  ["10150 Lahlangubo Street", "21 ShowFlats Langa", "8001 Northern Suburb CapeTown", "8000 Mannemberg CapeTown", "345 Samora CapeTown"]
-        email = ["karabo@gmail.com", "mndabeni6@gmail.com"]
+        email = ["karabo@gmail.com", "mndabeni6@gmail.com", "malik@gmail.com", "jardien@gmail.com", "likho@gmail.com"]
         ID_Number = ["0001 01683 1233", "991030, 580 084", "0002 11683 1433", "0003 05683 1233", "0006 08683 1243"]
         found = False
         for x in range(len(Username)):
@@ -67,9 +76,10 @@ class LotteryNumbers:
         if found == True:
             messagebox.showinfo("PERMISSION", "Access Granted")
             root.destroy()
-            import Play_Lotto
+            import Lotto_Station
         else:
-            messagebox.showinfo("ERROR INFO", "Access Denied")
+            messagebox.showerror("ERROR INFO", "Access Denied")
+
 
     def clear(self):
         self.username_entry.delete(0, END)
@@ -87,27 +97,6 @@ class LotteryNumbers:
             self.root.destroy()
         else:
             pass
-
-    # Age Verification
-    def verification(self):
-        age = "18"
-        ID_Number = '0001 5708 0848 4'
-
-        if age == '18':
-            messagebox.showinfo('PERMISSION', 'Lets Play')
-        if age < '18':
-            messagebox.showerror('STATUS',  'You are too young to play.' 'Please Try Again')
-
-        if ID_Number == '0001 5708 0848 4':
-            messagebox.showinfo('PERMISSION', 'CORRECT ID NUMBER')
-        if ID_Number < '0001 5708 0848 4':
-            messagebox.showerror('STATUS', 'INVALID ID NUMBER.' 'TRY AGAIN')
-
-
-
-
-
-
 
 
 
