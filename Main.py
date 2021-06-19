@@ -64,11 +64,11 @@ class LotteryNumbers:
 
     def login(self):
 
-        Username = ["Karabo", "Masimthembe", "Malik", "Jardien", "Likho"]
+        Username = ["Karabo", "Masimthembe", "Mpendulo", "Jardien", "Likho"]
         Password = ["123", "456", "789", "101", "131"]
         Address =  ["10150 Lahlangubo Street", "21 ShowFlats Langa", "8001 Northern Suburb CapeTown", "8000 Mannemberg CapeTown", "345 Samora CapeTown"]
-        email = ["karabo@gmail.com", "mndabeni6@gmail.com", "malik@gmail.com", "jardien@gmail.com", "likho@gmail.com"]
-        ID_Number = ["0001 01683 1233", "991030, 580 084", "0002 11683 1433", "0003 05683 1233", "0006 08683 1243"]
+        email = ["karabo@gmail.com", "mndabeni6@gmail.com", "mpendulo@gmail.com", "jardien@gmail.com", "likho@gmail.com"]
+        ID_Number = ["0001 01683 1233", "991030 580 084", "0002 11683 1433", "0003 05683 1233", "0006 08683 1243"]
         found = False
         for x in range(len(Username)):
             if self.username_entry.get() == Username[x] and self.password_entry.get() == Password[x] and self.user_address_entry.get("1.0",'end-1c') == Address[x] and self.email_entry.get() == email[x] and self.ID_number_entry.get() == ID_Number[x]:
@@ -77,6 +77,8 @@ class LotteryNumbers:
             messagebox.showinfo("PERMISSION", "Access Granted")
             root.destroy()
             import Lotto_Station
+
+
         else:
             messagebox.showerror("ERROR INFO", "Access Denied")
 
@@ -87,6 +89,7 @@ class LotteryNumbers:
         self.user_address_entry.delete('1.0', END)
         self.email_entry.delete(0, END)
         self.ID_number_entry.delete(0, END)
+
 
 
 
